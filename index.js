@@ -1,13 +1,14 @@
 import openai from './config/open-ai.js';
-async function main(){
-    const chatCompletion = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [
-            { role: 'user', content:'What is the name of Indian Prime Minister?'},
-        ],
-});
+import readlineSync from 'readline-sync';
+import colors from 'colors';
 
-    console.log(chatCompletion.data.choices[0].message.content);
+async function main(){
+    console.log(colors.bold.green('Welcome to the Chatbot Program'));
+    console.log(colors.bold.green('You can start chatting with the bot now'));
+    
+    while(true){
+        const userInput = readlineSync.question(colors.yellow('You: '));
+    }
 }
 
 main();
